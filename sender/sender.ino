@@ -11,8 +11,8 @@ void setup() {
   pinMode(photoResistor, INPUT);
   pinMode(buzzerPin, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Wait 5 seconds.");
-  delay(5000);
+  Serial.println("Wait 2 mins.");
+  delay(120000);
 }
 
 void loop() {
@@ -20,7 +20,7 @@ void loop() {
   int value = analogRead(photoResistor);
   // Lower value, more bright
   Serial.println(value);
-  if (value < 450) {
+  if (value < 500) {
     startBomb = true;
     digitalWrite(outputSignalPin, HIGH);
   }

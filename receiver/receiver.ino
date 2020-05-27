@@ -27,9 +27,10 @@ int wire3 = 9;
 int wire4 = 10;
 
 int speedFlag = 0;
-int timeCounter = 300; // 5 min, 300 sec
+int timeCounter = 300; // 5 min, 300 sec 65 min, 3900sec
 int change = 0;
 long lastTime = 0;
+unsigned long timePassed = 0;
 
 void setup() {
   pinMode(outputSignalPin, OUTPUT);
@@ -60,10 +61,11 @@ void setup() {
 
 void loop() {
 
-  int timePassed = 0;
+  
   if (digitalRead(inputSignalPin)) {
     startBomb = true;
   }
+  
   while (startBomb) {
     if (firstTimeStartingBomb) {
       timePassed = millis();
